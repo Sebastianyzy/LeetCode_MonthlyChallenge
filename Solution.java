@@ -1,121 +1,134 @@
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Set;
-import java.util.Stack;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Solution {
 	static int ans = 0;
 
 	public static void main(String args[]) {
-//		ListNode l1 = new ListNode(1);
-//		l1.next = new ListNode(9);
-//		l1.next.next = new ListNode(9);
-//		l1.next.next.next = new ListNode(9);
-//		l1.next.next.next.next = new ListNode(9);
-//		l1.next.next.next.next.next = new ListNode(9);
-//		l1.next.next.next.next.next.next = new ListNode(9);
-//		l1.next.next.next.next.next.next.next = new ListNode(9);
-//		l1.next.next.next.next.next.next.next.next = new ListNode(9);
-//		l1.next.next.next.next.next.next.next.next.next = new ListNode(9);
-//		ListNode l2 = new ListNode(9);
-//		l2.next = new ListNode(9);
-//		l2.next.next = new ListNode(9);
-//		l2.next.next.next = new ListNode(9);
-//		int num[] = { 1, 0, 0, 1, 0, 1 };
-//		int nums[] = { 1, 0, 0, 0, 1, 0, 0, 1, 0 };
-//		String s1 = "abc";
-//		String s2 = "bca";
-//		String s3 = "a";
-//		String s4 = "aa";
-//		String s5 = "cabbba";
-//		String s6 = "abbccc";
-//		String s7 = "cabbba";
-//		String s8 = "aabbss";
+		// ListNode l1 = new ListNode(1);
+		// l1.next = new ListNode(9);
+		// l1.next.next = new ListNode(9);
+		// l1.next.next.next = new ListNode(9);
+		// l1.next.next.next.next = new ListNode(9);
+		// l1.next.next.next.next.next = new ListNode(9);
+		// l1.next.next.next.next.next.next = new ListNode(9);
+		// l1.next.next.next.next.next.next.next = new ListNode(9);
+		// l1.next.next.next.next.next.next.next.next = new ListNode(9);
+		// l1.next.next.next.next.next.next.next.next.next = new ListNode(9);
+		// ListNode l2 = new ListNode(9);
+		// l2.next = new ListNode(9);
+		// l2.next.next = new ListNode(9);
+		// l2.next.next.next = new ListNode(9);
+		// int num[] = { 1, 0, 0, 1, 0, 1 };
+		// int nums[] = { 1, 0, 0, 0, 1, 0, 0, 1, 0 };
+		// String s1 = "abc";
+		// String s2 = "bca";
+		// String s3 = "a";
+		// String s4 = "aa";
+		// String s5 = "cabbba";
+		// String s6 = "abbccc";
+		// String s7 = "cabbba";
+		// String s8 = "aabbss";
 
-//		System.out.println("s1" + longestPalindrome(s1) + "s2" + longestPalindrome(s2) + "s3" + longestPalindrome(s3)
-//				+ "s4" + longestPalindrome(s4) + "s5" + longestPalindrome(s5));
-//		System.out.println("case 1" + closeStrings(s1, s2));
-//		System.out.println("case 2" + closeStrings(s3, s4));
-//		System.out.println("case 3" + closeStrings(s5, s6));
-//		System.out.println("case 3" + closeStrings(s7, s8));
-//		System.out.println("Case2" + maxOperations(nums, 6));
-//		System.out.println("case1" + kLengthApart(num, 2));
-//		System.out.println("case2" + kLengthApart(nums, 2));
-//		int[][] mat0 = { { 3, 3, 1, 1 }, { 2, 2, 1, 2 }, { 1, 1, 1, 2 } };
-//		HashMap<String, Integer> map = new HashMap<>();
-//		map.put("a", 1);
-//		map.put("b", 2);
-//		map.put("c", 3);
-//		map.put("d", 4);
-//
-//		map.put("e", 9);
-//		map.putIfAbsent("e", 5);
-//		System.out.println(map.toString());
+		// System.out.println("s1" + longestPalindrome(s1) + "s2" +
+		// longestPalindrome(s2) + "s3" + longestPalindrome(s3)
+		// + "s4" + longestPalindrome(s4) + "s5" + longestPalindrome(s5));
+		// System.out.println("case 1" + closeStrings(s1, s2));
+		// System.out.println("case 2" + closeStrings(s3, s4));
+		// System.out.println("case 3" + closeStrings(s5, s6));
+		// System.out.println("case 3" + closeStrings(s7, s8));
+		// System.out.println("Case2" + maxOperations(nums, 6));
+		// System.out.println("case1" + kLengthApart(num, 2));
+		// System.out.println("case2" + kLengthApart(nums, 2));
+		// int[][] mat0 = { { 3, 3, 1, 1 }, { 2, 2, 1, 2 }, { 1, 1, 1, 2 } };
+		// HashMap<String, Integer> map = new HashMap<>();
+		// map.put("a", 1);
+		// map.put("b", 2);
+		// map.put("c", 3);
+		// map.put("d", 4);
+		//
+		// map.put("e", 9);
+		// map.putIfAbsent("e", 5);
+		// System.out.println(map.toString());
 
-//		int[][] mat = diagonalSort(mat0);
-//		for (int row = 0; row < mat0.length; row++) {
-//			for (int col = 0; col < mat[0].length; col++) {
-//				System.out.println(mat[row][col]);
-//			}
-//			System.out.println("-----");
-//		}
-//		PriorityQueue<Integer> q = new PriorityQueue<>();
-//
-//		q.add(2);
-//		q.add(4);
-//		q.add(6);
-//		q.add(3);
-//		q.add(5);
-//		q.add(0);
-//		q.add(3);
-//		System.out.println(q);
-//		System.out.println(getSmallestString(3, 27));
-//		System.out.println(getSmallestString(5, 73));
-//		int[][] grid1 = { { 1, 0, 0, 1, 0 }, { 0, 0, 1, 0, 1 }, { 0, 0, 0, 1, 0 }, { 1, 0, 1, 0, 1 } };
-//		int[][] grid2 = { { 1, 1, 1 }, { 1, 1, 1 }, { 1, 1, 1 } };
-//		System.out.println("grid1:" + " " + countCornerRectangles(grid1));
-//		System.out.println("grid2:" + " " + countCornerRectangles(grid2));
-//		TreeNode tree = new TreeNode(3);
-//		tree.left = new TreeNode(9);
-//		tree.left.left = new TreeNode(1);
-//		tree.left.right = new TreeNode(3);
-//		tree.right = new TreeNode(20);
-//		tree.right.left = new TreeNode(15);
-//		tree.right.right = new TreeNode(7);
-//		// System.out.println(verticalTraversal(tree));
-//		List<Integer> list = inOrderTraversal(tree);
-//		for (int i = 0; i < list.size(); i++) {
-//			System.out.println(list.get(i));
-//		}
-//		int[] num1 = { 1, 3, 2, 2, 5, 2, 3, 7 };
-////		int[] num2 = { 4, 1, 5, 20, 3 };
-////		int[] num3 = { 2, 10, 8 };
-//		// System.out.println(String.valueOf(11111111111111111111111111111101));
-//		System.out.println(findLHS(num1));
-//		String s = "loveleetcode";
-//		char c = 'e';
-//		int[] ans = shortestToChar(s, c);
-//		ans = shortestToChar(s, c);
-//		for (int i = 0; i < ans.length; i++) {
-//			System.out.println(ans[i]);
-//		}s
-//		System.out.println(returnFirstchar(s, 4, 'o', false));
-//		int[][] mat = { { 1, 1, 0, 0, 0 }, { 1, 1, 1, 1, 0 }, { 1, 0, 0, 0, 0 }, { 1, 1, 0, 0, 0 }, { 1, 1, 1, 1, 1 } };
-//		int[] result = kWeakestRows(mat, 3);
-//		printIntArray(result);
+		// int[][] mat = diagonalSort(mat0);
+		// for (int row = 0; row < mat0.length; row++) {
+		// for (int col = 0; col < mat[0].length; col++) {
+		// System.out.println(mat[row][col]);
+		// }
+		// System.out.println("-----");
+		// }
+		// PriorityQueue<Integer> q = new PriorityQueue<>();
+		//
+		// q.add(2);
+		// q.add(4);
+		// q.add(6);
+		// q.add(3);
+		// q.add(5);
+		// q.add(0);
+		// q.add(3);
+		// System.out.println(q);
+		// System.out.println(getSmallestString(3, 27));
+		// System.out.println(getSmallestString(5, 73));
+		// int[][] grid1 = { { 1, 0, 0, 1, 0 }, { 0, 0, 1, 0, 1 }, { 0, 0, 0, 1, 0 }, {
+		// 1, 0, 1, 0, 1 } };
+		// int[][] grid2 = { { 1, 1, 1 }, { 1, 1, 1 }, { 1, 1, 1 } };
+		// System.out.println("grid1:" + " " + countCornerRectangles(grid1));
+		// System.out.println("grid2:" + " " + countCornerRectangles(grid2));
+		// TreeNode tree = new TreeNode(3);
+		// tree.left = new TreeNode(9);
+		// tree.left.left = new TreeNode(1);
+		// tree.left.right = new TreeNode(3);
+		// tree.right = new TreeNode(20);
+		// tree.right.left = new TreeNode(15);
+		// tree.right.right = new TreeNode(7);
+		// // System.out.println(verticalTraversal(tree));
+		// List<Integer> list = inOrderTraversal(tree);
+		// for (int i = 0; i < list.size(); i++) {
+		// System.out.println(list.get(i));
+		// }
+		// int[] num1 = { 1, 3, 2, 2, 5, 2, 3, 7 };
+		//// int[] num2 = { 4, 1, 5, 20, 3 };
+		//// int[] num3 = { 2, 10, 8 };
+		// // System.out.println(String.valueOf(11111111111111111111111111111101));
+		// System.out.println(findLHS(num1));
+		// String s = "loveleetcode";
+		// char c = 'e';
+		// int[] ans = shortestToChar(s, c);
+		// ans = shortestToChar(s, c);
+		// for (int i = 0; i < ans.length; i++) {
+		// System.out.println(ans[i]);
+		// }s
+		// System.out.println(returnFirstchar(s, 4, 'o', false));
+		// int[][] mat = { { 1, 1, 0, 0, 0 }, { 1, 1, 1, 1, 0 }, { 1, 0, 0, 0, 0 }, { 1,
+		// 1, 0, 0, 0 }, { 1, 1, 1, 1, 1 } };
+		// int[] result = kWeakestRows(mat, 3);
+		// printIntArray(result);
+	}
 
+	public static int smallestCommonElement(int[][] mat) {
+		HashMap<Integer, Integer> map = new HashMap<>();
+		for (int[] ints : mat) {
+			for (int anInt : ints) {
+				if (!map.containsKey(anInt)) {
+					map.put(anInt, 1);
+				} else {
+					map.put(anInt, map.get(anInt) + 1);
+				}
+			}
+		}
+		int min = Integer.MAX_VALUE;
+		for (int[] ints : mat) {
+			for (int anInt : ints) {
+				if (anInt < min && map.get(anInt) == mat.length) {
+					min = anInt;
+				}
+			}
+		}
+		return min == Integer.MAX_VALUE ? -1 : min;
 	}
 
 	public static ListNode swapNodes(ListNode head, int k) {
+
 		int listLength = 0;
 		ListNode front = null;
 		ListNode end = null;
@@ -1194,6 +1207,28 @@ public class Solution {
 			return true;
 		}
 		return false;
+	}
+
+	private static boolean spellchecker_checkvowels(String s1, String s2) {
+		Set<Character> set = new HashSet<>();
+		set.add('a');
+		set.add('e');
+		set.add('i');
+		set.add('o');
+		set.add('u');
+		if (s1.length() != s2.length()) {
+			return false;
+		}
+		for (int i = 0; i < s1.length(); i++) {
+			char st1 = Character.toLowerCase(s1.charAt(i));
+			char st2 = Character.toLowerCase(s2.charAt(i));
+			if (st1 != st2 && (!set.contains(st1) || !set.contains(st2))) {
+				return false;
+			}
+
+		}
+
+		return true;
 	}
 
 }
