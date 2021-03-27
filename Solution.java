@@ -103,6 +103,33 @@ public class Solution {
 		// 1, 0, 0, 0 }, { 1, 1, 1, 1, 1 } };
 		// int[] result = kWeakestRows(mat, 3);
 		// printIntArray(result);
+		String s = "aaa";
+		System.out.println(countSubstrings(s));
+	}
+
+	public static int countSubstrings(String s) {
+		int count = 0;
+		for (int i = 0; i <= s.length(); i++) {
+			for (int j = i + 1; j <= s.length(); j++) {
+				if (countSubstrings_isPalindromic(s.substring(i, j))) {
+					count++;
+				}
+			}
+		}
+		return count;
+
+	}
+
+	private static boolean countSubstrings_isPalindromic(String s) {
+		int i = 0, j = s.length() - 1;
+		while (j >= i) {
+			if (s.charAt(i) != s.charAt(j)) {
+				return false;
+			}
+			i++;
+			j--;
+		}
+		return true;
 	}
 
 	public static int smallestCommonElement(int[][] mat) {
