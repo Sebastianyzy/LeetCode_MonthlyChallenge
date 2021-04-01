@@ -103,10 +103,69 @@ public class Solution {
 		// 1, 0, 0, 0 }, { 1, 1, 1, 1, 1 } };
 		// int[] result = kWeakestRows(mat, 3);
 		// printIntArray(result);
-		String s = "aaa";
-		System.out.println(countSubstrings(s));
+		int[][] arr = {{1, 1}, {1, 1}, {1, 1}};
+		int[] cur = arr[1].clone();
+		System.out.println(cur[0]);
+
 	}
 
+	public static boolean isPalindrome(ListNode head) {
+		List<Integer> list = new ArrayList<>();
+		while (head != null) {
+			list.add(head.val);
+			head = head.next;
+		}
+		int i = 0, j = list.size() - 1;
+		while (j >= i) {
+			if (!list.get(j).equals(list.get(i))) {
+				return false;
+			}
+			i++;
+			j--;
+		}
+		return true;
+	}
+
+	public static int largestUniqueNumber(int[] A) {
+		Set<Integer> set = new HashSet<>();
+		for (int i : A) {
+			if (largestUniqueNumber_isDuplicate(i, A)) {
+				set.add(i);
+			}
+		}
+		Arrays.sort(A);
+		int max = 0;
+		for (int i = A.length - 1; i >= 0; i--) {
+			if (!set.contains(A[i])) {
+				return A[i];
+			}
+		}
+		return -1;
+	}
+
+	private static boolean largestUniqueNumber_isDuplicate(int num, int[] A) {
+		int numOfint = 0;
+		for (int i = 0; i < A.length; i++) {
+			if (A[i] == num) {
+				numOfint++;
+			}
+		}
+		return numOfint > 1;
+	}
+	public static int maxEnvelopes(int[][] envelopes) {
+		int count = 0;
+		for (int i = 0; i < envelopes.length; i++) {
+			int[] cur = envelopes[i].clone();
+			for (int j = 0; j < envelopes.length; j++) {
+				// count+= envelopes[j][0]>envelopes[i][0] && envelopes[j][1]>envelopes[i][1]?
+				// 1:0;
+				if (envelopes[j][0] > envelopes[i][0] && envelopes[j][1] > envelopes[i][1]) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
 	public static int countSubstrings(String s) {
 		int count = 0;
 		for (int i = 0; i <= s.length(); i++) {
