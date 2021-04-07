@@ -103,10 +103,33 @@ public class Solution {
 		// 1, 0, 0, 0 }, { 1, 1, 1, 1, 1 } };
 		// int[] result = kWeakestRows(mat, 3);
 		// printIntArray(result);
-		int[][] arr = {{1, 1}, {1, 1}, {1, 1}};
-		int[] cur = arr[1].clone();
-		System.out.println(cur[0]);
 
+	}
+	public static boolean halvesAreAlike(String s) {
+		String first = s.substring(0, s.length() / 2);
+		String second = s.substring(s.length() / 2, s.length());
+		HashSet<Character> set = new HashSet<>();
+		set.add('a');
+		set.add('e');
+		set.add('i');
+		set.add('o');
+		set.add('u');
+		set.add('A');
+		set.add('E');
+		set.add('I');
+		set.add('O');
+		set.add('U');
+		int fi = 0, se = 0;
+
+		for (int i = 0; i < first.length(); i++) {
+			if (set.contains(first.charAt(i))) {
+				fi++;
+			}
+			if (set.contains(second.charAt(i))) {
+				se++;
+			}
+		}
+		return fi == se;
 	}
 
 	public static boolean isPalindrome(ListNode head) {
