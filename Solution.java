@@ -105,6 +105,27 @@ public class Solution {
 		// printIntArray(result);
 
 	}
+	public static TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
+		int cur = Integer.MAX_VALUE;
+		List<Integer> list = new ArrayList<>();
+		inorderSuccessor_inOrder(root, list);
+		for (Integer integer : list) {
+			if (integer > p.val && integer < cur) {
+				cur = integer;
+			}
+		}
+		return cur == Integer.MAX_VALUE ? null : new TreeNode(cur);
+
+	}
+	private static void inorderSuccessor_inOrder(TreeNode root, List<Integer> list) {
+		if (root == null) {
+			return;
+		}
+		inorderSuccessor_inOrder(root.left, list);
+		list.add(root.val);
+		inorderSuccessor_inOrder(root.right, list);
+	}
+
 	public static boolean halvesAreAlike(String s) {
 		String first = s.substring(0, s.length() / 2);
 		String second = s.substring(s.length() / 2, s.length());
