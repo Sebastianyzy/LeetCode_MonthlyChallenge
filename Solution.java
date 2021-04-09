@@ -103,8 +103,37 @@ public class Solution {
 		// 1, 0, 0, 0 }, { 1, 1, 1, 1, 1 } };
 		// int[] result = kWeakestRows(mat, 3);
 		// printIntArray(result);
+	}
+
+	public static boolean isAlienSorted(String[] words, String order) {
+		HashMap<Character, Integer> dict = new HashMap<>();
+		for (int i = 0; i < order.length(); i++) {
+			dict.put(order.charAt(i), i);
+		}
+		for (int i = 0; i < words.length - 1; i++) {
+			if (isAlienSorted_Compare(words[i], words[i + 1], dict)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	private static boolean isAlienSorted_Compare(String a, String b, HashMap<Character, Integer> dict) {
+		int i = 0, j = 0;
+		while (i < a.length() && j < b.length()) {
+			if (dict.get(a.charAt(i)) > dict.get(b.charAt(j))) {
+				System.out.println();
+				return true;
+			} else if (dict.get(b.charAt(j)) > dict.get(a.charAt(i))) {
+				return false;
+			}
+			i++;
+			j++;
+		}
+		return a.length() > b.length();
 
 	}
+
 	public static TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
 		int cur = Integer.MAX_VALUE;
 		List<Integer> list = new ArrayList<>();
@@ -117,6 +146,7 @@ public class Solution {
 		return cur == Integer.MAX_VALUE ? null : new TreeNode(cur);
 
 	}
+
 	private static void inorderSuccessor_inOrder(TreeNode root, List<Integer> list) {
 		if (root == null) {
 			return;
@@ -196,6 +226,7 @@ public class Solution {
 		}
 		return numOfint > 1;
 	}
+
 	public static int maxEnvelopes(int[][] envelopes) {
 		int count = 0;
 		for (int i = 0; i < envelopes.length; i++) {
@@ -210,6 +241,7 @@ public class Solution {
 		}
 		return count;
 	}
+
 	public static int countSubstrings(String s) {
 		int count = 0;
 		for (int i = 0; i <= s.length(); i++) {
