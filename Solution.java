@@ -103,6 +103,7 @@ public class Solution {
 		// 1, 0, 0, 0 }, { 1, 1, 1, 1, 1 } };
 		// int[] result = kWeakestRows(mat, 3);
 		// printIntArray(result);
+
 	}
 
 	public static ListNode partition(ListNode head, int x) {
