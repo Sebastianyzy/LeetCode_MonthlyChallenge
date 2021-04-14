@@ -105,6 +105,36 @@ public class Solution {
 		// printIntArray(result);
 	}
 
+	public static ListNode partition(ListNode head, int x) {
+		if (head == null) {
+			return null;
+		}
+		List<Integer> store = new ArrayList<>();
+		List<Integer> newlist = new ArrayList<>();
+		while (head != null) {
+			store.add(head.val);
+			head = head.next;
+		}
+		for (int i : store) {
+			if (i < x) {
+				newlist.add(i);
+			}
+		}
+		for (int j : store) {
+			if (j >= x) {
+				newlist.add(j);
+			}
+		}
+		ListNode dummy = new ListNode(0);
+		ListNode cur = new ListNode(newlist.get(0));
+		dummy.next = cur;
+		for (int i = 1; i < newlist.size(); i++) {
+			cur.next = new ListNode(newlist.get(i));
+			cur = cur.next;
+		}
+		return dummy.next;
+	}
+
 	public static boolean isAlienSorted(String[] words, String order) {
 		HashMap<Character, Integer> dict = new HashMap<>();
 		for (int i = 0; i < order.length(); i++) {
