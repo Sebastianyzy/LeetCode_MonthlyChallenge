@@ -106,6 +106,25 @@ public class Solution {
 
 	}
 
+	public static ListNode removeNthFromEnd(ListNode head, int n) {
+		if (head == null) {
+			return null;
+		}
+		List<Integer> list = new ArrayList<>();
+		while (head != null) {
+			list.add(head.val);
+			head = head.next;
+		}
+		list.remove(list.size() - n);
+		ListNode dummy = new ListNode(0), ans = list.isEmpty() ? null : new ListNode(list.get(0));
+		dummy.next = ans;
+		for (int i = 1; i < list.size(); i++) {
+			ans.next = new ListNode(list.get(i));
+			ans = ans.next;
+		}
+		return dummy.next;
+	}
+
 	public static ListNode partition(ListNode head, int x) {
 		if (head == null) {
 			return null;
