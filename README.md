@@ -1,3 +1,3 @@
 # LeetCode_Monthly_Challenge
 
-LeetCode monthly challenge questions
+LeetCode Monthly Challenge Questions
