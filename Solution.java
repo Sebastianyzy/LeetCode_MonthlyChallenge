@@ -104,6 +104,7 @@ public class Solution {
 		// int[] result = kWeakestRows(mat, 3);
 		// printIntArray(result);
 
+
 	}
 
 	public static ListNode removeNthFromEnd(ListNode head, int n) {
