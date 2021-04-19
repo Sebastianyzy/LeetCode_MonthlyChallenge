@@ -1,2 +1,2 @@
 # LeetCode_Monthly_Challenge
-daily practice
+All the monthly challenge I did
