@@ -1,2 +1,3 @@
 # LeetCode_Monthly_Challenge
-daily practice
+
+LeetCode monthly challenge questions
