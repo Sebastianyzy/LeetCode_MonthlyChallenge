@@ -3,7 +3,7 @@ import java.util.*;
 public class Solution {
 	static int ans = 0;
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		// ListNode l1 = new ListNode(1);
 		// l1.next = new ListNode(9);
 		// l1.next.next = new ListNode(9);
@@ -103,6 +103,17 @@ public class Solution {
 		// 1, 0, 0, 0 }, { 1, 1, 1, 1, 1 } };
 		// int[] result = kWeakestRows(mat, 3);
 		// printIntArray(result);
+	}
+	public static int missingNumber(int[] arr) {
+		int pattern = (arr[0]-arr[arr.length -1])/arr.length;
+		int cur = arr[0];
+		for (int j : arr) {
+			if (cur != j) {
+				return cur;
+			}
+			cur -= pattern;
+		}
+		return arr[0];
 	}
 
 	public static ListNode removeNthFromEnd(ListNode head, int n) {
