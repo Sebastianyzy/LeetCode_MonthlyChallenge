@@ -104,6 +104,16 @@ public class Solution {
 		// int[] result = kWeakestRows(mat, 3);
 		// printIntArray(result);
 	}
+
+	public static boolean isPowerOfThree(int n) {
+		if(n < 1){
+			return false;
+		}
+		while(n % 3 == 0){
+			n/=3;
+		}
+		return n == 1;
+	}
 	public static int missingNumber(int[] arr) {
 		int pattern = (arr[0]-arr[arr.length -1])/arr.length;
 		int cur = arr[0];
