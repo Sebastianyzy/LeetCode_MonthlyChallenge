@@ -105,6 +105,27 @@ public class Solution {
 		// printIntArray(result);
 	}
 
+	public static List<Integer> powerfulIntegers(int x, int y, int bound) {
+		int a = x == 1 ? bound : (int) (Math.log(bound) / Math.log(x));
+		int b = y == 1 ? bound : (int) (Math.log(bound) / Math.log(y));
+		HashSet<Integer> powerfulIntegers = new HashSet<Integer>();
+		for (int i = 0; i <= a; i++) {
+			for (int j = 0; j <= b; j++) {
+				int value = (int) Math.pow(x, i) + (int) Math.pow(y, j);
+				if (value <= bound) {
+					powerfulIntegers.add(value);
+				}
+				if (y == 1) {
+					break;
+				}
+			}
+			if (x == 1) {
+				break;
+			}
+		}
+		return new ArrayList<>(powerfulIntegers);
+	}
+
 	public static int[] searchRange(int[] nums, int target) {
 		List<Integer> position = new ArrayList<>();
 		int[] ans = { -1, -1 };
