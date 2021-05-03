@@ -105,6 +105,18 @@ public class Solution {
 		// printIntArray(result);
 	}
 
+	public int[] runningSum(int[] nums) {
+		int[] ans = new int[nums.length];
+		for(int i = 0; i < nums.length; i++){
+			int sum = 0;
+			for(int j = 0; j <= i; j++){
+				sum+=nums[j];
+			}
+			ans[i] = sum;
+		}
+		return ans;
+	}
+
 	public static List<Integer> powerfulIntegers(int x, int y, int bound) {
 		int a = x == 1 ? bound : (int) (Math.log(bound) / Math.log(x));
 		int b = y == 1 ? bound : (int) (Math.log(bound) / Math.log(y));
