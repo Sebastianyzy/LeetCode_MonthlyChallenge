@@ -105,6 +105,25 @@ public class Solution {
 		// printIntArray(result);
 	}
 
+	public static boolean checkPossibility(int[] nums) {
+		boolean visited = false;
+		for(int i = 1; i < nums.length ;i++){
+			if(nums[i-1] > nums[i]){
+				if(visited){
+					return false;
+				}
+				visited = true;
+				if(i < 2||nums[i-2]<=nums[i]){
+					nums[i-1] = nums[i];
+				}
+				else{
+					nums[i] = nums[i-1];
+				}
+			}
+		}
+		return true;
+	}
+
 	public int[] runningSum(int[] nums) {
 		int[] ans = new int[nums.length];
 		for(int i = 0; i < nums.length; i++){
