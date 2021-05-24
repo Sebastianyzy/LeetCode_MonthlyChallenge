@@ -105,6 +105,10 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static String toLowerCase(String s) {
+        return s.toLowerCase();
+    }
+
     public static List<String> findAndReplacePattern(String[] words, String pattern) {
         List<String> ans = new ArrayList<>();
         for (String s : words) {
