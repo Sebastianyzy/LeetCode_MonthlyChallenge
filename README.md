@@ -1,2 +1,3 @@
-# LeetCode_Monthly_Challenge
+# LeetCode_MonthlyChallenge
+
 Just For Fun
