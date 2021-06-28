@@ -105,6 +105,26 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static String removeDuplicates(String S) {
+        if (S.length() < 2) {
+            return S;
+        }
+        Stack<Character> stack = new Stack<>();
+        stack.push(S.charAt(0));
+        for (int i = 1; i < S.length(); i++) {
+            if (!stack.isEmpty() && stack.peek() == S.charAt(i)) {
+                stack.pop();
+            } else {
+                stack.push(S.charAt(i));
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        while (!stack.isEmpty()) {
+            sb.append(stack.pop());
+        }
+        return sb.reverse().toString();
+    }
+
     public static ListNode reverseBetween(ListNode head, int m, int n) {
         if (head == null) {
             return null;
