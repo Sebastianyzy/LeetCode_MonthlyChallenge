@@ -105,6 +105,16 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static boolean isArmstrong(int n) {
+        String s = n + "";
+        int sum = 0;
+        for (int i = 0; i < s.length(); i++) {
+            int cur_int = Integer.parseInt(Character.toString(s.charAt(i))), cur = (int) Math.pow(cur_int, s.length());
+            sum += cur;
+        }
+        return sum == n;
+    }
+
     public static String removeDuplicates(String S) {
         if (S.length() < 2) {
             return S;
