@@ -105,6 +105,19 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static int kthSmallest(int[][] matrix, int k) {
+        int[] ans = new int[matrix.length * matrix[0].length];
+        int l = 0;
+        for (int[] ints : matrix) {
+            for (int anInt : ints) {
+                ans[l] = anInt;
+                l++;
+            }
+        }
+        Arrays.sort(ans);
+        return ans[k - 1];
+    }
+
     public static boolean isArmstrong(int n) {
         String s = n + "";
         int sum = 0;
