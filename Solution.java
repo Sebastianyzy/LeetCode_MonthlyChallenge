@@ -105,6 +105,25 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static int findPeakElement(int[] nums) {
+        int max = 0;
+        if (nums.length < 2) {
+            return 0;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[0] > nums[1]) {
+                return 0;
+            }
+            if (nums[nums.length - 1] > nums[nums.length - 2]) {
+                return nums.length - 1;
+            }
+            if (i != 0 && i != nums.length - 1) {
+                max = nums[i] > nums[i - 1] && nums[i] > nums[i + 1] ? i : max;
+            }
+        }
+        return max;
+    }
+
     public static boolean isIsomorphic(String s, String t) {
         if (s.length() != t.length()) {
             return false;
