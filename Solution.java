@@ -103,6 +103,8 @@ public class Solution {
         // 1, 0, 0, 0 }, { 1, 1, 1, 1, 1 } };
         // int[] result = kWeakestRows(mat, 3);
         // printIntArray(result);
+
+
     }
 
     public static int[] getModifiedArray(int length, int[][] updates) {
