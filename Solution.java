@@ -105,6 +105,16 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static int[] getModifiedArray(int length, int[][] updates) {
+        int[] ans = new int[length];
+        for (int[] update : updates) {
+            for (int j = update[0]; j <= update[1]; j++) {
+                ans[j] += update[2];
+            }
+        }
+        return ans;
+    }
+
     public static int findPeakElement(int[] nums) {
         int max = 0;
         if (nums.length < 2) {
