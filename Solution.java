@@ -107,6 +107,23 @@ public class Solution {
 
     }
 
+    public static char slowestKey(int[] releaseTimes, String keysPressed) {
+        char ans = keysPressed.charAt(0);
+        int time = 0;
+        for(int i = 0; i< keysPressed.length(); i++){
+            int temp = i == 0? releaseTimes[0]: releaseTimes[i]-releaseTimes[i-1];
+            if(temp > time){
+                ans = keysPressed.charAt(i);
+                time = temp;
+            }
+            if(temp == time){
+                ans = keysPressed.charAt(i) > ans? keysPressed.charAt(i): ans;
+            }
+
+        }
+        return ans;
+    }
+
     public static int[] twoSum(int[] nums, int target) {
         int[] ans = new int[2];
         for(int i = 0; i<nums.length-1; i++ ){
