@@ -106,6 +106,7 @@ public class Solution {
 
 
     }
+
     public static ListNode reverseList(ListNode head) {
         List<Integer> l = new ArrayList<>();
         while (head != null) {
