@@ -106,6 +106,23 @@ public class Solution {
 
 
     }
+    public static ListNode reverseList(ListNode head) {
+        List<Integer> l = new ArrayList<>();
+        while (head != null) {
+            l.add(head.val);
+            head = head.next;
+        }
+        ListNode dummy = new ListNode(0);
+        ListNode cur = new ListNode(0);
+        dummy.next = cur;
+        int i = 1;
+        for (int j = l.size() - 1; j >= 0; j--) {
+            cur.next = new ListNode(l.get(l.size() - i));
+            i++;
+            cur = cur.next;
+        }
+        return dummy.next.next;
+    }
 
     public static char slowestKey(int[] releaseTimes, String keysPressed) {
         char ans = keysPressed.charAt(0);
