@@ -103,8 +103,27 @@ public class Solution {
         // 1, 0, 0, 0 }, { 1, 1, 1, 1, 1 } };
         // int[] result = kWeakestRows(mat, 3);
         // printIntArray(result);
+    }
+    public static String reverseOnlyLetters(String s) {
+        String ans = "", result = "";
+        for(int i = s.length()-1; i>=0; i--){
+            if(Character.isAlphabetic(s.charAt(i))){
+                ans+=Character.toString(s.charAt(i));
+            }
+        }
+        int j = 0, i = 0;
+        while(i < s.length()){
+            if(Character.isAlphabetic(s.charAt(i))){
+                result+=Character.toString(ans.charAt(j));
+                j++;
 
-
+            }
+            else{
+                result+= Character.toString(s.charAt(i));
+            }
+            i++;
+        }
+        return result;
     }
 
     public static ListNode reverseList(ListNode head) {
