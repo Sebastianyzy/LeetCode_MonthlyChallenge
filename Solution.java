@@ -104,6 +104,28 @@ public class Solution {
         // int[] result = kWeakestRows(mat, 3);
         // printIntArray(result);
     }
+
+    public static int[] intersect(int[] nums1, int[] nums2) {
+        List<Integer> list = new ArrayList<>();
+        for(int i = 0; i < nums1.length; i++){
+            int point = intersect_exist(nums2, nums1[i]);
+            if(point != -1){
+                list.add(nums1[i]);
+                nums2[point] = Integer.MAX_VALUE;
+            }
+        }
+        return list.stream().mapToInt(i -> i).toArray();
+
+    }
+
+    private static int intersect_exist(int[] num, int n){
+        for(int i = 0; i< num.length; i++){
+            if(num[i] == n){
+                return i;
+            }
+        }
+        return -1;
+    }
     public static String reverseOnlyLetters(String s) {
         String ans = "", result = "";
         for(int i = s.length()-1; i>=0; i--){
