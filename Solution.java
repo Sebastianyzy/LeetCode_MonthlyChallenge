@@ -105,6 +105,21 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static int findMaxConsecutiveOnes(int[] nums) {
+        int i = 0, temp = 0, count =0;
+        while(i < nums.length){
+            if(nums[i] == 1){
+                temp++;
+            }
+            else{
+                count = Math.max(temp, count);
+                temp = 0;
+            }
+            i++;
+        }
+        return Math.max(temp, count);
+    }
+
     public static int[] intersect(int[] nums1, int[] nums2) {
         List<Integer> list = new ArrayList<>();
         for(int i = 0; i < nums1.length; i++){
