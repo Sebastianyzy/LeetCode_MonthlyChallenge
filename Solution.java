@@ -105,6 +105,18 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static List<Integer> findDuplicates(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        List<Integer> list = new ArrayList<>();
+        for(int i: nums){
+            if(set.contains(i)){
+                list.add(i);
+            }
+            set.add(i);
+        }
+        return list;
+    }
+
     public static int findMaxConsecutiveOnes(int[] nums) {
         int i = 0, temp = 0, count =0;
         while(i < nums.length){
