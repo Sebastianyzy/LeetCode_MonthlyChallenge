@@ -105,6 +105,16 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static int arrangeCoins(int n) {
+        int count = 0, level = 1;
+        while(n >= 0){
+            n-= level;
+            level++;
+            count++;
+        }
+        return n == 0? count:count-1;
+    }
+
     public static List<Integer> findDuplicates(int[] nums) {
         Set<Integer> set = new HashSet<>();
         List<Integer> list = new ArrayList<>();
