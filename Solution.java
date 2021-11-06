@@ -105,14 +105,44 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static int[] singleNumber(int[] nums) {
+        int[] ans = new int[2];
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i: nums){
+            if(map.containsKey(i)){
+                map.put(i, map.get(i)+1);
+            }
+            else{
+                map.put(i,1);
+            }
+        }
+        int pos = 0;
+        for(int i: nums){
+            if(map.get(i) == 1 && !singleNumber_contains(ans, i)){
+                ans[pos] = i;
+                pos++;
+            }
+        }
+        return ans;
+    }
+
+    private static boolean singleNumber_contains(int[] nums, int i){
+        for(int integer: nums){
+            if(integer == i){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static int arrangeCoins(int n) {
         int count = 0, level = 1;
-        while(n >= 0){
+        while(n > 0){
             n-= level;
             level++;
             count++;
         }
-        return n == 0? count:count-1;
+        return n == 0 ? count : count-1;
     }
 
     public static List<Integer> findDuplicates(int[] nums) {
