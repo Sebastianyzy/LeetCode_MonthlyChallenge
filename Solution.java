@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.*;
 
 public class Solution {
@@ -103,6 +104,11 @@ public class Solution {
         // 1, 0, 0, 0 }, { 1, 1, 1, 1, 1 } };
         // int[] result = kWeakestRows(mat, 3);
         // printIntArray(result);
+    }
+
+    public static String multiply(String num1, String num2) {
+        BigInteger f = new BigInteger(num1), s = new BigInteger(num2), ans = f.multiply(s);
+        return ans.toString();
     }
 
     public static int[] singleNumber(int[] nums) {
