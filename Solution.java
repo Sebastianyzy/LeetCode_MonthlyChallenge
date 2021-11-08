@@ -597,8 +597,9 @@ public class Solution {
             } else if (dict.get(b.charAt(j)) > dict.get(a.charAt(i))) {
                 return false;
             }
-            i++;
             j++;
+            i++;
+
         }
         return a.length() > b.length();
 
