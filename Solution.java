@@ -642,7 +642,6 @@ public class Solution {
         set.add('O');
         set.add('U');
         int fi = 0, se = 0;
-
         for (int i = 0; i < first.length(); i++) {
             if (set.contains(first.charAt(i))) {
                 fi++;
