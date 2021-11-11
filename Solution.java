@@ -106,6 +106,25 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static int minStartValue(int[] nums) {
+        for(int i = 1; i < Integer.MAX_VALUE; i++){
+            if(minStartValue_check(nums, i)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private static boolean minStartValue_check(int[] nums, int start){
+        for (int num : nums) {
+            start += num;
+            if (start <= 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static String multiply(String num1, String num2) {
         BigInteger f = new BigInteger(num1), s = new BigInteger(num2), ans = f.multiply(s);
         return ans.toString();
