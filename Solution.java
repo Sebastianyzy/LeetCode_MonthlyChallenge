@@ -105,6 +105,24 @@ public class Solution {
         // int[] result = kWeakestRows(mat, 3);
         // printIntArray(result);
     }
+    public static int[] dailyTemperatures(int[] temperatures) {
+        int[] ans = new int[temperatures.length];
+        for(int i = 0; i < temperatures.length; i++){
+            ans[i] = dailyTemperatures_getDays(temperatures, i);
+        }
+        return ans;
+    }
+
+    private static int dailyTemperatures_getDays(int[] temperatures, int num){
+        int ans = 0, temp = temperatures[num];
+        for(int i = num; i < temperatures.length; i++){
+            if(temperatures[i] > temp){
+                return ans;
+            }
+            ans++;
+        }
+        return 0;
+    }
 
     public static int minStartValue(int[] nums) {
         for(int i = 1; i < Integer.MAX_VALUE; i++){
