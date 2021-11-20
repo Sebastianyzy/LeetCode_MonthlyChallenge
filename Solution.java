@@ -105,6 +105,23 @@ public class Solution {
         // int[] result = kWeakestRows(mat, 3);
         // printIntArray(result);
     }
+
+    public static int singleNonDuplicate(int[] nums) {
+        if(nums.length < 2){
+            return nums[0];
+        }
+        int i = 0, dummy = 0;
+        while(i < nums.length-1){
+            dummy+=nums[i];
+            i++;
+            dummy-=nums[i];
+            if(dummy != 0){
+                return nums[i-1];
+            }
+            i++;
+        }
+        return nums[nums.length-1];
+    }
     public static int[] dailyTemperatures(int[] temperatures) {
         int[] ans = new int[temperatures.length];
         for(int i = 0; i < temperatures.length; i++){
