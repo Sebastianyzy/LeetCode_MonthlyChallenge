@@ -106,6 +106,18 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static int searchInsert(int[] nums, int target) {
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] >= target){
+                return i;
+            }
+            else if(i == nums.length -1){
+                return nums.length;
+            }
+        }
+        return -1;
+    }
+
     public static int singleNonDuplicate(int[] nums) {
         if(nums.length < 2){
             return nums[0];
