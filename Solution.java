@@ -106,6 +106,15 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static int getDecimalValue(ListNode head){
+        String bi = "";
+        while (head != null){
+            bi += head.val;
+            head = head.next;
+        }
+        return Integer.parseInt(bi, 2);
+    }
+
     public static int maxProduct(int[] nums) {
         int ans = nums[0];
         for (int i = 0; i < nums.length; i++) {
