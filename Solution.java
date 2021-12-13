@@ -106,6 +106,25 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static int maxPower(String s){
+        int ans = 1;
+        for(int i = 0; i < s.length() - 1; i++){
+            char pre = s.charAt(i), post = s.charAt(i + 1);
+            if(pre == post){
+                int temp = 1;
+                for(int j = i + 1; j < s.length(); j++){
+                    if(s.charAt(j) == pre){
+                        temp++;
+                    } else{
+                        break;
+                    }
+                }
+                ans = Math.max(ans, temp);
+            }
+        }
+        return ans;
+    }
+
     public static int getDecimalValue(ListNode head){
         String bi = "";
         while (head != null){
