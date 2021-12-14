@@ -106,6 +106,25 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static int rangeSumBST(TreeNode root, int low, int high){
+        int ans = 0;
+        List<Integer> list = new ArrayList<>();
+        rangeSumBST_Preorder(root, list);
+        for(int val : list){
+            ans += val >= low && val <= high ? val : 0;
+        }
+        return ans;
+    }
+
+    private static void rangeSumBST_Preorder(TreeNode root, List<Integer> list){
+        if(root == null){
+            return;
+        }
+        list.add(root.val);
+        rangeSumBST_Preorder(root.left, list);
+        rangeSumBST_Preorder(root.right, list);
+    }
+
     public static int maxPower(String s){
         int ans = 1;
         for(int i = 0; i < s.length() - 1; i++){
