@@ -106,6 +106,21 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static ListNode insertionSortList(ListNode head) {
+        ListNode dummy = new ListNode(0), ans = dummy;
+        List<Integer> list = new ArrayList<>();
+        while(head != null){
+            list.add(head.val);
+            head = head.next;
+        }
+        Collections.sort(list);
+        for(Integer integer : list){
+            dummy.next = new ListNode(integer);
+            dummy = dummy.next;
+        }
+        return ans.next;
+    }
+
     public static int rangeSumBST(TreeNode root, int low, int high){
         int ans = 0;
         List<Integer> list = new ArrayList<>();
