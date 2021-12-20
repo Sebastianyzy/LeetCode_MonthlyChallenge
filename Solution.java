@@ -106,6 +106,26 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static List<List<Integer>> minimumAbsDifference(int[] arr) {
+        List<List<Integer>> list = new ArrayList<>();
+        Arrays.sort(arr);
+        int min = Integer.MAX_VALUE;
+        for(int i = 1; i < arr.length; i++){
+            int a = arr[i], b = arr[i - 1], diff = Math.abs(a - b);
+            if(diff <= min){
+                List<Integer> temp = new ArrayList<>();
+                if(diff < min){
+                    min = diff;
+                    list.clear();
+                }
+                temp.add(b);
+                temp.add(a);
+                list.add(temp);
+            }
+        }
+        return list;
+    }
+
     public static ListNode insertionSortList(ListNode head) {
         ListNode dummy = new ListNode(0), ans = dummy;
         List<Integer> list = new ArrayList<>();
