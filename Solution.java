@@ -106,6 +106,16 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static boolean isPowerOfTwo(int n) {
+        if(n == 0){
+            return false;
+        }
+        while(n % 2 == 0){
+            n /= 2;
+        }
+        return n == 1;
+    }
+
     public static List<List<Integer>> minimumAbsDifference(int[] arr) {
         List<List<Integer>> list = new ArrayList<>();
         Arrays.sort(arr);
