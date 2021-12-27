@@ -106,6 +106,14 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static int findComplement(int num) {
+        String bi = Integer.toBinaryString(num),ans = "";
+        for(char c : bi.toCharArray()){
+            ans += c=='0'? "1":"0";
+        }
+        return Integer.parseInt(ans,2);
+    }
+
     public static boolean isPowerOfTwo(int n) {
         if(n == 0){
             return false;
