@@ -106,6 +106,22 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static ListNode middleNode(ListNode head){
+        List<Integer> list = new ArrayList<>();
+        while(head != null){
+            list.add(head.val);
+            head = head.next;
+        }
+        ListNode ans = new ListNode(0);
+        ListNode dummy = ans;
+        dummy.next = ans;
+        for(int i = list.size() / 2; i < list.size(); i++){
+            ans.next = new ListNode(list.get(i));
+            ans = ans.next;
+        }
+        return dummy.next;
+    }
+
     public static int findComplement(int num) {
         String bi = Integer.toBinaryString(num),ans = "";
         for(char c : bi.toCharArray()){
