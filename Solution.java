@@ -106,6 +106,14 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static int bitwiseComplement(int n) {
+        String bi = Integer.toBinaryString(n), ans = "";
+        for(char c: bi.toCharArray()){
+            ans += c == '1'? "0":"1";
+        }
+        return Integer.parseInt(ans, 2);
+    }
+
     public static ListNode middleNode(ListNode head){
         List<Integer> list = new ArrayList<>();
         while(head != null){
