@@ -106,6 +106,30 @@ public class Solution {
         // printIntArray(result);
     }
 
+    public static int sumRootToLeaf(TreeNode root){
+        List<String> list = new ArrayList<>();
+        String temp = "";
+        sumRootToLeaf_AddPath(root, list, temp);
+        int ans = 0;
+        for(String s : list){
+            ans += Integer.parseInt(s, 2);
+        }
+        return ans;
+    }
+
+    public static void sumRootToLeaf_AddPath(TreeNode root, List<String> list, String ans){
+        if(root == null){
+            return;
+        }
+        ans += root.val;
+        if(root.left == null && root.right == null){
+            list.add(ans);
+        } else{
+            sumRootToLeaf_AddPath(root.left, list, ans);
+            sumRootToLeaf_AddPath(root.right, list, ans);
+        }
+    }
+
     public static int bitwiseComplement(int n) {
         String bi = Integer.toBinaryString(n), ans = "";
         for(char c: bi.toCharArray()){
