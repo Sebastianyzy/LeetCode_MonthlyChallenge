@@ -107,6 +107,18 @@ public class Solution {
         //
         //
     }
+
+    public static int maximumWealth(int[][] accounts){
+        int ans = 0;
+        for(int[] i : accounts){
+            int temp = 0;
+            for(int integer : i){
+                temp += integer;
+            }
+            ans = Math.max(temp, ans);
+        }
+        return ans;
+    }
     public static boolean detectCapitalUse(String word){
         return detectCapitalUse_case_one(word) || detectCapitalUse_case_two(word) || detectCapitalUse_case_three(word);
     }
