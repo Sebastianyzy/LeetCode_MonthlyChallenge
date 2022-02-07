@@ -137,6 +137,7 @@ public class Solution {
         }
         return ans;
     }
+
     public static boolean detectCapitalUse(String word){
         return detectCapitalUse_case_one(word) || detectCapitalUse_case_two(word) || detectCapitalUse_case_three(word);
     }
