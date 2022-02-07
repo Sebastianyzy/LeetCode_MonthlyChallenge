@@ -108,6 +108,24 @@ public class Solution {
         //
     }
 
+    public static char findTheDifference(String s, String t){
+        String temp = s.length() > t.length() ? s : t;
+        for(char c : temp.toCharArray()){
+            if(findTheDifference_numOfchar(c, t) != findTheDifference_numOfchar(c, s)){
+                return c;
+            }
+        }
+        return ' ';
+    }
+
+    private static int findTheDifference_numOfchar(char ch, String s){
+        int ans = 0;
+        for(char c : s.toCharArray()){
+            ans += c == ch ? 1 : 0;
+        }
+        return ans;
+    }
+
     public static int maximumWealth(int[][] accounts){
         int ans = 0;
         for(int[] i : accounts){
