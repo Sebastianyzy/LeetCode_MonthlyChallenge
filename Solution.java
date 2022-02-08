@@ -108,6 +108,22 @@ public class Solution {
         //
     }
 
+    public static int addDigits(int num){
+        String ans = num + "";
+        while(ans.length() != 1){
+            ans = addDigits_Add(ans);
+        }
+        return Integer.parseInt(ans);
+    }
+
+    private static String addDigits_Add(String s){
+        int ans = 0;
+        for(char c : s.toCharArray()){
+            ans += Integer.parseInt(Character.toString(c));
+        }
+        return ans + "";
+    }
+
     public static char findTheDifference(String s, String t){
         String temp = s.length() > t.length() ? s : t;
         for(char c : temp.toCharArray()){
