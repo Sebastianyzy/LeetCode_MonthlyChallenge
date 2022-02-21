@@ -107,6 +107,24 @@ public class Solution {
         //
         //
         //
+
+    }
+    public static int majorityElement(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int ans = Integer.MIN_VALUE, temp = Integer.MIN_VALUE;
+        for(int i:nums){
+            if(!map.containsKey(i)){
+                map.put(i,1);
+            }
+            else{
+                map.put(i, map.get(i)+1);
+            }
+        }
+        for(int i:nums){
+            ans = map.get(i) > temp? i:ans;
+            temp = Math.max(map.get(i), temp);
+        }
+        return ans;
     }
 
     public static int maxDepth(TreeNode root){
